@@ -15,6 +15,11 @@ public class MongoTransactionServiceBean implements MongoTransactionService {
   private MongoTransactionRepository mongoTransactionRepository;
 
   @Override
+  public void create(MongoTransaction mongoTransaction) {
+    mongoTransactionRepository.save(mongoTransaction);
+  }
+
+  @Override
   public List<MongoTransaction> findByUserId(Integer userId) {
     return mongoTransactionRepository.findAllByUserId(userId);
   }
